@@ -1,17 +1,78 @@
-import Link from "next/link";
+import HeroSection from "@/components/HeroSection";
+import PropertyCard from "@/components/PropertyCard";
+import ExperienceSection from "@/components/ExperienceSection";
+import ReviewsSection from "@/components/ReviewsSection";
+import CTASection from "@/components/CTASection";
+import { getFeaturedProperties } from "@/lib/api";
+import { getAllReviews } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+    const properties = await getFeaturedProperties();
+    const reviews = await getAllReviews();
+
     return (
-        <main className="p-10">
-            <h1 className="text-3xl font-bold">
-                Booking App
-            </h1>
+        <>
+            {/* Hero */}
+            <HeroSection />
 
-            <Link href="/properties">
-                <button className="mt-4 bg-black text-white px-4 py-2 rounded">
-                    Ver propiedades
-                </button>
-            </Link>
-        </main>
+            {/* Properties Section */}
+            <section id="properties" className="py-20 lg:py-28 bg-sand-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Section Header */}
+                    <div className="text-center max-w-2xl mx-auto mb-14">
+                        <span className="inline-block text-lake-600 text-sm font-semibold uppercase tracking-[0.15em] mb-4">
+                            Nos Propriétés
+                        </span>
+                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 text-balance">
+                            Trouvez votre
+                            <br />
+                            <span className="text-lake-600">havre de paix</span>
+                        </h2>
+                        <p className="text-slate-500 text-lg leading-relaxed">
+                            Chaque propriété a été sélectionnée pour son emplacement
+                            exceptionnel et son design soigné.
+                        </p>
+                    </div>
+
+                    {/* Property Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {properties.map((property) => (
+                            <PropertyCard key={property.id} property={property} />
+                        ))}
+                    </div>
+
+                    {/* View All Link */}
+                    <div className="text-center mt-12">
+                        <a
+                            href="/properties"
+                            id="view-all-properties"
+                            className="inline-flex items-center gap-2 text-lake-600 font-semibold hover:text-lake-800 transition-colors group"
+                        >
+                            Voir toutes les propriétés
+                            <svg
+                                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* Experience */}
+            <ExperienceSection />
+
+            {/* Reviews */}
+            <ReviewsSection reviews={reviews} />
+
+            {/* CTA */}
+            <CTASection />
+        </>
     );
 }
