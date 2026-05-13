@@ -65,9 +65,6 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Experience */}
-            <ExperienceSection />
-
             {/* Reviews */}
             <ReviewsSection reviews={reviews} />
 
