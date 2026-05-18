@@ -62,7 +62,7 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-8">
                     {[
                         { href: "/#properties", label: "Nos Chalets" },
-                        { href: "/#experience", label: "L'Expérience" },
+                        { href: "/experience", label: "L'Expérience" },
                         { href: "/#reviews", label: "Avis" },
                         { href: "/#contact", label: "Contact" },
                     ].map((link) => (
@@ -130,7 +130,7 @@ export default function Navbar() {
                 <div className="glass mx-4 mt-3 rounded-2xl p-4 shadow-[var(--shadow-elevated)]">
                     {[
                         { href: "/#properties", label: "Nos Chalets" },
-                        { href: "/#experience", label: "L'Expérience" },
+                        { href: "/experience", label: "L'Expérience" },
                         { href: "/#reviews", label: "Avis" },
                         { href: "/#contact", label: "Contact" },
                     ].map((link) => (

@@ -130,7 +130,7 @@ export default function Footer() {
                         <div className="space-y-4">
                             <div className="flex items-start gap-3">
                                 <svg
-                                    className="w-5 h-5 text-lake-400 mt-0.5 flex-shrink-0"
+                                    className="w-5 h-5 text-lake-400 mt-0.5 shrink-0"
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     stroke="currentColor"
@@ -141,15 +141,37 @@ export default function Footer() {
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
-                                <span className="text-slate-400 text-sm">
-                                    123 Rue du Fleuve
-                                    <br />
-                                    Kamouraska, QC G0L 1M0
-                                </span>
+                                <div>
+                                    <span className="text-slate-400 text-sm block">
+                                        10 Chemin du Lac St Pierre East
+                                        <br />
+                                        Mont-Carmel, QC G0L 1W0
+                                    </span>
+                                    <a
+                                        href="https://maps.app.goo.gl/LrCETCKWy8pcCU6C7"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 mt-2 text-lake-300 text-sm hover:text-white transition-colors duration-300"
+                                    >
+                                        Voir sur Google Maps
+                                        <svg
+                                            className="w-4 h-4"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M7 17L17 7" />
+                                            <path d="M7 7h10v10" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <svg
-                                    className="w-5 h-5 text-lake-400 flex-shrink-0"
+                                    className="w-5 h-5 text-lake-400 shrink-0"
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     stroke="currentColor"
@@ -165,7 +187,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-center gap-3">
                                 <svg
-                                    className="w-5 h-5 text-lake-400 flex-shrink-0"
+                                    className="w-5 h-5 text-lake-400 shrink-0"
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     stroke="currentColor"

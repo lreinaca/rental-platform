@@ -14,7 +14,7 @@ export default function HeroSection() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/hero-chalet.png"
+                    src="/images/hero-chalet.jpeg"
                     alt="Chalets Kamouraska — Lakefront luxury on the St. Lawrence"
                     fill
                     className="object-cover"
