@@ -28,7 +28,7 @@ export default function Footer() {
                             </div>
                             <div>
                                 <span className="font-serif font-bold text-lg text-white block leading-tight">
-                                    Chalets
+                                    Condos
                                 </span>
                                 <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-lake-400 leading-none">
                                     Kamouraska
@@ -36,7 +36,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
-                            Découvrez le charme du Kamouraska dans nos chalets et condos
+                            Découvrez le charme du Kamouraska dans nos Condos et condos
                             haut de gamme, au bord du fleuve Saint-Laurent.
                         </p>
                         <div className="flex gap-3">
@@ -81,7 +81,7 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-3">
                             {[
-                                { href: "/properties", label: "Tous les chalets" },
+                                { href: "/properties", label: "Tous les Condos" },
                                 { href: "/#experience", label: "L'expérience" },
                                 { href: "/#reviews", label: "Avis clients" },
                                 { href: "/#contact", label: "Nous contacter" },
@@ -199,7 +199,7 @@ export default function Footer() {
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
                                 <span className="text-slate-400 text-sm">
-                                    info@chaletskamouraska.ca
+                                    info@Condoskamouraska.ca
                                 </span>
                             </div>
                         </div>
@@ -209,7 +209,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-slate-500 text-sm">
-                        © {new Date().getFullYear()} Chalets Kamouraska. Tous droits
+                        © {new Date().getFullYear()} Condos Kamouraska. Tous droits
                         réservés.
                     </p>
                     <p className="text-slate-600 text-xs">

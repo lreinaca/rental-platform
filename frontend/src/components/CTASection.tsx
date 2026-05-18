@@ -8,7 +8,7 @@ export default function CTASection() {
             <div className="absolute inset-0">
                 <Image
                     src="/images/aerial-property.png"
-                    alt="Vue aérienne du domaine Chalets Kamouraska"
+                    alt="Vue aérienne du domaine Condos Kamouraska"
                     fill
                     className="object-cover"
                     sizes="100vw"

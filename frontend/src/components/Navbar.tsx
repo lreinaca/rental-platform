@@ -46,7 +46,7 @@ export default function Navbar() {
                                 scrolled ? "text-slate-900" : "text-white"
                             }`}
                         >
-                            Chalets
+                            Condos
                         </span>
                         <span
                             className={`text-[10px] font-medium tracking-[0.2em] uppercase leading-none transition-colors duration-300 ${
@@ -61,7 +61,7 @@ export default function Navbar() {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     {[
-                        { href: "/#properties", label: "Nos Chalets" },
+                        { href: "/#properties", label: "Nos Condos" },
                         { href: "/experience", label: "L'Expérience" },
                         { href: "/#reviews", label: "Avis" },
                         { href: "/#contact", label: "Contact" },
@@ -129,7 +129,7 @@ export default function Navbar() {
             >
                 <div className="glass mx-4 mt-3 rounded-2xl p-4 shadow-[var(--shadow-elevated)]">
                     {[
-                        { href: "/#properties", label: "Nos Chalets" },
+                        { href: "/#properties", label: "Nos Condos" },
                         { href: "/experience", label: "L'Expérience" },
                         { href: "/#reviews", label: "Avis" },
                         { href: "/#contact", label: "Contact" },

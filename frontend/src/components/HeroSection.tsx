@@ -15,7 +15,7 @@ export default function HeroSection() {
             <div className="absolute inset-0">
                 <Image
                     src="/images/hero-chalet.jpeg"
-                    alt="Chalets Kamouraska — Lakefront luxury on the St. Lawrence"
+                    alt="Condos Kamouraska — Lakefront luxury on the St. Lawrence"
                     fill
                     className="object-cover"
                     priority
@@ -64,8 +64,7 @@ export default function HeroSection() {
 
                     {/* Subtitle */}
                     <p className="text-white/80 text-lg sm:text-xl max-w-lg mb-8 animate-fade-in-up opacity-0 stagger-2 leading-relaxed">
-                        Chalets et condos d&apos;exception au cœur du Kamouraska, face
-                        au majestueux fleuve Saint-Laurent.
+                        Des condos d’exception face au majestueux fleuve Saint-Laurent, dans la magnifique région du Kamouraska.
                     </p>
 
                     {/* CTA Buttons */}
@@ -75,7 +74,7 @@ export default function HeroSection() {
                             id="hero-explore-btn"
                             className="gradient-cta text-white font-semibold px-8 py-4 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg"
                         >
-                            Explorer nos chalets
+                            Explorer nos Condos
                         </Link>
                         <a
                             href="#experience"
