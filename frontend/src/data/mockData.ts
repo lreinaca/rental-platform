@@ -12,12 +12,12 @@ export const properties: Property[] = [
             "Evasion au bord du Lac Saint-Pierre avec vue panoramique, balcon et ambiance sereine.",
         pricePerNight: 245,
         images: [
-            "/images/condo-interior.png",
+            "/images/condo-interior.jpg",
             "/images/bedroom-view.png",
             "/images/deck-sunset.png",
             "/images/hero-chalet.png",
         ],
-        thumbnail: "/images/condo-interior.png",
+        thumbnail: "/images/condo-interior.jpg",
         bedrooms: 2,
         bathrooms: 1,
         maxGuests: 6,
@@ -59,7 +59,7 @@ export const properties: Property[] = [
         images: [
             "/images/hero-chalet.png",
             "/images/deck-sunset.png",
-            "/images/condo-interior.png",
+            "/images/condo-interior.jpg",
             "/images/bedroom-view.png",
         ],
         thumbnail: "/images/hero-chalet.png",
@@ -101,7 +101,7 @@ export const properties: Property[] = [
         pricePerNight: 185,
         images: [
             "/images/bedroom-view.png",
-            "/images/condo-interior.png",
+            "/images/condo-interior.jpg",
             "/images/deck-sunset.png",
             "/images/hero-chalet.png",
         ],

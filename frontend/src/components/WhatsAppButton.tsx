@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 
 const WHATSAPP_NUMBER = "15147422293";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-    "Bonjour, je souhaiterais obtenir plus d’informations concernant les condos/chalets à Kamouraska."
-);
+    "Bonjour, je souhaiterais obtenir plus d’informations concernant les condos/chalets à Kamouraska.");
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 export default function WhatsAppButton() {
