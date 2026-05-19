@@ -4,9 +4,9 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Nos Propriétés — Chalets Kamouraska",
+    title: "Nos Propriétés — Condos Kamouraska",
     description:
-        "Explorez notre collection de chalets et condos haut de gamme au bord du fleuve Saint-Laurent à Kamouraska, Québec.",
+        "Explorez notre collection de Condos et condos haut de gamme au bord du fleuve Saint-Laurent à Kamouraska, Québec.",
 };
 
 export default async function PropertiesPage() {
@@ -18,7 +18,7 @@ export default async function PropertiesPage() {
             <div className="relative h-64 lg:h-80 overflow-hidden">
                 <Image
                     src="/images/aerial-property.png"
-                    alt="Vue aérienne du domaine Chalets Kamouraska"
+                    alt="Vue aérienne du domaine Condos Kamouraska"
                     fill
                     className="object-cover"
                     sizes="100vw"

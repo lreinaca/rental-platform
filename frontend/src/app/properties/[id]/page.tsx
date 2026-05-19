@@ -14,7 +14,7 @@ export async function generateMetadata({
     const property = await getPropertyById(id);
     if (!property) return { title: "Propriété non trouvée" };
     return {
-        title: `${property.name} — Chalets Kamouraska`,
+        title: `${property.name} — Condos Kamouraska`,
         description: property.shortDescription,
     };
 }
