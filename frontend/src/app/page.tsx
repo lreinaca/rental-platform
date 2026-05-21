@@ -5,6 +5,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import CTASection from "@/components/CTASection";
 import { getFeaturedProperties } from "@/lib/api";
 import { getAllReviews } from "@/lib/api";
+import Link from "next/link";
 
 export default async function Home() {
     const properties = await getFeaturedProperties();
@@ -43,7 +44,7 @@ export default async function Home() {
 
                     {/* View All Link */}
                     <div className="text-center mt-12">
-                        <a
+                        <Link
                             href="/properties"
                             id="view-all-properties"
                             className="inline-flex items-center gap-2 text-lake-600 font-semibold hover:text-lake-800 transition-colors group"
@@ -60,7 +61,7 @@ export default async function Home() {
                                     clipRule="evenodd"
                                 />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
