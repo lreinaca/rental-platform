@@ -7,7 +7,7 @@ export default function PropertyCard({ property }: { property: Property }) {
         <Link
             href={`/properties/${property.id}`}
             id={`property-card-${property.id}`}
-            className="group block bg-white rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 hover:-translate-y-1"
+            className="group block min-w-0 bg-white rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 hover:-translate-y-1"
         >
             {/* Image */}
             <div className="relative aspect-property overflow-hidden">
@@ -22,9 +22,9 @@ export default function PropertyCard({ property }: { property: Property }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Badges */}
-                <div className="absolute top-3 left-3 flex gap-2">
+                <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-2">
                     {property.lakefront && (
-                        <span className="glass-dark text-white/95 text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                        <span className="glass-dark text-white/95 text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg flex items-center gap-1.5">
                             <svg
                                 className="w-3.5 h-3.5 text-lake-300"
                                 viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ export default function PropertyCard({ property }: { property: Property }) {
                         </span>
                     )}
                     {property.featured && (
-                        <span className="bg-sunset-500/90 text-white text-xs font-semibold px-3 py-1.5 rounded-lg">
+                        <span className="bg-sunset-500/90 text-white text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg">
                             Coup de cœur
                         </span>
                     )}
@@ -51,7 +51,7 @@ export default function PropertyCard({ property }: { property: Property }) {
             </div>
 
             {/* Content */}
-            <div className="p-5 lg:p-6">
+                <div className="p-5 lg:p-6">
                 {/* Rating */}
                 <div className="flex items-center gap-1.5 mb-2.5">
                     <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -62,10 +62,10 @@ export default function PropertyCard({ property }: { property: Property }) {
                 </div>
 
                 {/* Title & Location */}
-                <h3 className="font-serif text-xl font-semibold text-slate-800 mb-1 group-hover:text-lake-700 transition-colors duration-300">
+                <h3 className="font-serif text-xl font-semibold text-slate-800 mb-1 group-hover:text-lake-700 transition-colors duration-300 line-clamp-2">
                     {property.name}
                 </h3>
-                <p className="text-sm text-slate-500 mb-3 flex items-center gap-1">
+                <p className="text-sm text-slate-500 mb-3 flex min-w-0 items-center gap-1">
                     <svg
                         className="w-3.5 h-3.5"
                         viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function PropertyCard({ property }: { property: Property }) {
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
                     </svg>
-                    {property.location}
+                    <span className="min-w-0 truncate">{property.location}</span>
                 </p>
 
                 {/* Description */}
@@ -87,20 +87,20 @@ export default function PropertyCard({ property }: { property: Property }) {
                 </p>
 
                 {/* Features */}
-                <div className="flex items-center gap-4 text-slate-500 text-sm border-t border-slate-100 pt-4">
-                    <span className="flex items-center gap-1.5">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-slate-500 text-sm border-t border-slate-100 pt-4">
+                    <span className="flex items-center gap-1.5 whitespace-nowrap">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
                         </svg>
                         {property.bedrooms} ch.
                     </span>
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 whitespace-nowrap">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M4 12h8M4 12a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6M7 12v4M17 12v4" />
                         </svg>
                         {property.bathrooms} sdb.
                     </span>
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 whitespace-nowrap">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                             <circle cx="9" cy="7" r="4" />

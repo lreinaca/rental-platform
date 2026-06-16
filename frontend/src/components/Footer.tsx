@@ -6,8 +6,8 @@ export default function Footer() {
             {/* Decorative Wave */}
             <div className="absolute top-0 left-0 right-0 h-1 gradient-lake" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <div className="safe-container py-12 sm:py-16 lg:py-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
                     {/* Brand */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-2.5 mb-5">
@@ -35,7 +35,7 @@ export default function Footer() {
                                 </span>
                             </div>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs text-pretty">
                             Découvrez le charme du Kamouraska dans nos Condos et condos
                             haut de gamme, au bord du fleuve Saint-Laurent.
                         </p>
@@ -75,7 +75,7 @@ export default function Footer() {
                     </div>
 
                     {/* Explore */}
-                    <div>
+                    <div className="min-w-0">
                         <h4 className="text-sm font-semibold uppercase tracking-wider text-lake-400 mb-5">
                             Explorer
                         </h4>
@@ -99,7 +99,7 @@ export default function Footer() {
                     </div>
 
                     {/* Info */}
-                    <div>
+                    <div className="min-w-0">
                         <h4 className="text-sm font-semibold uppercase tracking-wider text-lake-400 mb-5">
                             Informations
                         </h4>
@@ -123,7 +123,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact */}
-                    <div>
+                    <div className="min-w-0">
                         <h4 className="text-sm font-semibold uppercase tracking-wider text-lake-400 mb-5">
                             Contact
                         </h4>
@@ -141,7 +141,7 @@ export default function Footer() {
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
-                                <div>
+                                <div className="min-w-0">
                                     <span className="text-slate-400 text-sm block">
                                         10 Chemin du Lac St Pierre East
                                         <br />
@@ -198,7 +198,7 @@ export default function Footer() {
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
-                                <span className="text-slate-400 text-sm">
+                                <span className="min-w-0 break-words text-slate-400 text-sm">
                                     info@Condoskamouraska.ca
                                 </span>
                             </div>
@@ -207,13 +207,13 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                     <p className="text-slate-500 text-sm">
                         © {new Date().getFullYear()} Condos Kamouraska. Tous droits
                         réservés.
                     </p>
                     <p className="text-slate-600 text-xs">
-                        Fait avec ❤️ au Québec
+                        Fait avec amour au Québec
                     </p>
                 </div>
             </div>

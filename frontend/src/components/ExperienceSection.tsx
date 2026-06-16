@@ -45,35 +45,35 @@ const experiences = [
 
 export default function ExperienceSection() {
     return (
-        <section id="experience" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <section id="experience" className="py-16 sm:py-20 lg:py-28 bg-white relative overflow-hidden">
             {/* Subtle Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03]" style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3c8d' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div className="safe-container relative">
                 {/* Section Header */}
-                <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 lg:mb-20">
                     <span className="inline-block text-lake-600 text-sm font-semibold uppercase tracking-[0.15em] mb-4">
                         L&apos;Expérience
                     </span>
-                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 text-balance">
+                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 text-balance leading-tight">
                         Plus qu&apos;un séjour,
                         <br />
                         <span className="text-lake-600">une évasion</span>
                     </h2>
-                    <p className="text-slate-500 text-lg leading-relaxed">
+                    <p className="text-slate-500 text-base sm:text-lg leading-relaxed text-pretty">
                         Chaque détail a été pensé pour créer une expérience
                         inoubliable, entre nature préservée et confort moderne.
                     </p>
                 </div>
 
                 {/* Experience Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16 lg:mb-20">
-                    {experiences.map((exp, i) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
+                    {experiences.map((exp) => (
                         <div
                             key={exp.title}
-                            className="group text-center p-6 lg:p-8 rounded-2xl bg-sand-50 hover:bg-white hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
+                            className="group text-center p-5 sm:p-6 lg:p-8 rounded-2xl bg-sand-50 hover:bg-white hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
                         >
                             <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-lake-100 text-lake-600 flex items-center justify-center group-hover:bg-lake-600 group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                                 {exp.icon}
@@ -90,7 +90,7 @@ export default function ExperienceSection() {
 
                 {/* Feature Image Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div className="relative rounded-3xl overflow-hidden aspect-gallery shadow-[var(--shadow-elevated)]">
+                    <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-gallery shadow-[var(--shadow-elevated)]">
                         <Image
                             src="/images/deck-sunset.png"
                             alt="Terrasse avec vue sur le lac au coucher du soleil"
@@ -103,12 +103,12 @@ export default function ExperienceSection() {
                         <span className="text-lake-600 text-sm font-semibold uppercase tracking-[0.15em] mb-3 block">
                             Moments Inoubliables
                         </span>
-                        <h3 className="font-serif text-2xl lg:text-3xl font-bold text-slate-900 mb-5">
+                        <h3 className="font-serif text-2xl lg:text-3xl font-bold text-slate-900 mb-5 leading-tight">
                             Chaque saison apporte
                             <br />
                             sa propre magie
                         </h3>
-                        <p className="text-slate-500 text-base leading-relaxed mb-6">
+                        <p className="text-slate-500 text-base leading-relaxed mb-6 text-pretty">
                             De l&apos;été vibrant avec ses activités nautiques aux hivers
                             féeriques au coin du feu, le Kamouraska offre un spectacle
                             sans pareil à chaque saison.
@@ -134,7 +134,7 @@ export default function ExperienceSection() {
                                             />
                                         </svg>
                                     </div>
-                                    <div>
+                                    <div className="min-w-0">
                                         <span className="font-semibold text-slate-800 text-sm">{item.season}</span>
                                         <span className="text-slate-500 text-sm"> — {item.desc}</span>
                                     </div>

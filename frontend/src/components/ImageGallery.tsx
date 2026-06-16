@@ -31,10 +31,10 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
     return (
         <>
             {/* Gallery Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-2 rounded-3xl overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-hidden rounded-2xl md:rounded-3xl">
                 {/* Main Image */}
                 <div
-                    className="md:col-span-2 md:row-span-2 relative aspect-hero md:aspect-auto md:h-full cursor-pointer group"
+                    className="col-span-2 md:row-span-2 relative aspect-[4/3] sm:aspect-hero md:aspect-auto md:h-full min-h-0 cursor-pointer group"
                     onClick={() => openLightbox(0)}
                 >
                     <Image
@@ -52,7 +52,7 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
                 {images.slice(1, 5).map((img, i) => (
                     <div
                         key={i}
-                        className={`relative aspect-gallery cursor-pointer group ${
+                        className={`relative aspect-square sm:aspect-gallery cursor-pointer group ${
                             i >= 2 ? "hidden md:block" : ""
                         }`}
                         onClick={() => openLightbox(i + 1)}
@@ -67,9 +67,9 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
 
                         {/* Show All Photos Button on Last Thumbnail */}
-                        {i === images.length - 2 && images.length > 4 && (
+                        {i === 3 && images.length > 5 && (
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                                <span className="text-white font-semibold text-sm flex items-center gap-2">
+                                <span className="text-white font-semibold text-xs sm:text-sm flex items-center gap-2 text-center">
                                     <svg
                                         className="w-4 h-4"
                                         viewBox="0 0 24 24"
@@ -95,13 +95,13 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
             {/* Lightbox */}
             {lightboxOpen && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center animate-fade-in"
+                    className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center animate-fade-in px-4"
                     onClick={closeLightbox}
                 >
                     {/* Close */}
                     <button
                         onClick={closeLightbox}
-                        className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+                        className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
                         aria-label="Fermer"
                     >
                         <svg
@@ -123,7 +123,7 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
                             e.stopPropagation();
                             prevImage();
                         }}
-                        className="absolute left-4 lg:left-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+                        className="absolute left-3 sm:left-4 lg:left-8 bottom-8 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
                         aria-label="Photo précédente"
                     >
                         <svg
@@ -144,7 +144,7 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
                             e.stopPropagation();
                             nextImage();
                         }}
-                        className="absolute right-4 lg:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+                        className="absolute right-3 sm:right-4 lg:right-8 bottom-8 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
                         aria-label="Photo suivante"
                     >
                         <svg
@@ -162,7 +162,7 @@ export default function ImageGallery({ images, propertyName }: ImageGalleryProps
 
                     {/* Image */}
                     <div
-                        className="relative w-full max-w-5xl mx-4 aspect-video"
+                        className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-video"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image

@@ -1,5 +1,5 @@
 import { fetchQuery } from "convex/nextjs";
-import { api } from "../../../backend/convex/_generated/api";
+import { api } from "@/lib/convexApi";
 import {
     properties,
     reviews,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, Suspense } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -60,7 +60,7 @@ function BookingFlow() {
 
     if (step === "confirmation") {
         return (
-            <div className="pt-28 pb-20 min-h-screen bg-sand-50">
+            <div className="pt-24 sm:pt-28 pb-16 sm:pb-20 min-h-screen bg-sand-50">
                 <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
                     {/* Success Animation */}
                     <div className="w-24 h-24 mx-auto mb-8 rounded-full bg-forest-100 flex items-center justify-center animate-scale-in">
@@ -77,10 +77,10 @@ function BookingFlow() {
                         </svg>
                     </div>
 
-                    <h1 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+                    <h1 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight">
                         Réservation confirmée!
                     </h1>
-                    <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+                    <p className="text-slate-500 text-base sm:text-lg mb-8 leading-relaxed text-pretty">
                         Merci, {firstName}! Votre séjour au{" "}
                         <span className="font-semibold text-slate-700">
                             {property.name}
@@ -90,7 +90,7 @@ function BookingFlow() {
                     </p>
 
                     {/* Booking Summary Card */}
-                    <div className="bg-white rounded-3xl shadow-[var(--shadow-elevated)] overflow-hidden text-left mb-8">
+                    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[var(--shadow-elevated)] overflow-hidden text-left mb-8">
                         <div className="relative h-48">
                             <Image
                                 src={property.thumbnail}
@@ -100,12 +100,12 @@ function BookingFlow() {
                                 sizes="(max-width: 640px) 100vw, 640px"
                             />
                         </div>
-                        <div className="p-6 lg:p-8">
+                        <div className="p-5 sm:p-6 lg:p-8">
                             <h2 className="font-serif text-xl font-bold text-slate-900 mb-1">
                                 {property.name}
                             </h2>
                             <p className="text-slate-500 text-sm mb-4">{property.location}</p>
-                            <div className="grid grid-cols-3 gap-4 py-4 border-y border-slate-100">
+                            <div className="grid grid-cols-1 min-[420px]:grid-cols-3 gap-4 py-4 border-y border-slate-100">
                                 <div>
                                     <p className="text-xs text-slate-400 uppercase font-semibold tracking-wider">
                                         Arrivée
@@ -131,7 +131,7 @@ function BookingFlow() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex justify-between font-bold text-lg mt-4">
+                            <div className="flex justify-between gap-4 font-bold text-lg mt-4">
                                 <span>Total</span>
                                 <span>${total} CAD</span>
                             </div>
@@ -140,7 +140,7 @@ function BookingFlow() {
 
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 gradient-cta text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="inline-flex w-full items-center justify-center gap-2 gradient-cta text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 sm:w-auto"
                     >
                         Retour à l&apos;accueil
                     </Link>
@@ -150,7 +150,7 @@ function BookingFlow() {
     }
 
     return (
-        <div className="pt-24 pb-20 min-h-screen bg-sand-50">
+        <div className="pt-24 pb-16 sm:pb-20 min-h-screen bg-sand-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="mb-8">
@@ -171,18 +171,18 @@ function BookingFlow() {
                         </svg>
                         Retour à la propriété
                     </Link>
-                    <h1 className="font-serif text-3xl font-bold text-slate-900">
+                    <h1 className="font-serif text-3xl font-bold text-slate-900 leading-tight">
                         Finaliser votre réservation
                     </h1>
                 </div>
 
                 {/* Progress Steps */}
-                <div className="flex items-center gap-0 mb-10 max-w-md">
+                <div className="flex items-center gap-0 mb-8 sm:mb-10 max-w-md">
                     {steps.map((s, i) => (
                         <div key={s.key} className="flex items-center flex-1">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
                                 <div
-                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                                    className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
                                         i <= currentStepIndex
                                             ? "gradient-lake text-white shadow-md"
                                             : "bg-slate-200 text-slate-400"
@@ -201,7 +201,7 @@ function BookingFlow() {
                                     )}
                                 </div>
                                 <span
-                                    className={`text-sm font-medium hidden sm:block ${
+                                    className={`text-sm font-medium hidden sm:block truncate ${
                                         i <= currentStepIndex
                                             ? "text-slate-800"
                                             : "text-slate-400"
@@ -212,7 +212,7 @@ function BookingFlow() {
                             </div>
                             {i < steps.length - 1 && (
                                 <div
-                                    className={`flex-1 h-0.5 mx-3 rounded transition-colors duration-300 ${
+                                    className={`flex-1 min-w-4 h-0.5 mx-2 sm:mx-3 rounded transition-colors duration-300 ${
                                         i < currentStepIndex
                                             ? "bg-lake-500"
                                             : "bg-slate-200"
@@ -229,7 +229,7 @@ function BookingFlow() {
                     <div className="lg:col-span-3">
                         {step === "details" && (
                             <form onSubmit={handleSubmitDetails} className="space-y-6">
-                                <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[var(--shadow-card)]">
+                                <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-[var(--shadow-card)]">
                                     <h2 className="font-serif text-xl font-bold text-slate-900 mb-6">
                                         Vos informations
                                     </h2>
@@ -244,7 +244,7 @@ function BookingFlow() {
                                                 required
                                                 value={firstName}
                                                 onChange={(e) => setFirstName(e.target.value)}
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                 placeholder="Marie"
                                             />
                                         </div>
@@ -258,7 +258,7 @@ function BookingFlow() {
                                                 required
                                                 value={lastName}
                                                 onChange={(e) => setLastName(e.target.value)}
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                 placeholder="Tremblay"
                                             />
                                         </div>
@@ -272,7 +272,7 @@ function BookingFlow() {
                                                 required
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                 placeholder="marie@exemple.ca"
                                             />
                                         </div>
@@ -286,7 +286,7 @@ function BookingFlow() {
                                                 required
                                                 value={phone}
                                                 onChange={(e) => setPhone(e.target.value)}
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                 placeholder="+1 (418) 555-0123"
                                             />
                                         </div>
@@ -301,7 +301,7 @@ function BookingFlow() {
                                             rows={3}
                                             value={specialRequests}
                                             onChange={(e) => setSpecialRequests(e.target.value)}
-                                            className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all resize-none"
+                                            className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all resize-none"
                                             placeholder="Arrivée tardive, lit bébé, etc."
                                         />
                                     </div>
@@ -311,7 +311,7 @@ function BookingFlow() {
                                     id="booking-continue-btn"
                                     type="submit"
                                     disabled={!isDetailsValid}
-                                    className="w-full gradient-cta text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                                    className="w-full gradient-cta text-white font-semibold py-3.5 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                                 >
                                     Continuer au paiement
                                 </button>
@@ -320,7 +320,7 @@ function BookingFlow() {
 
                         {step === "payment" && (
                             <form onSubmit={handleSubmitPayment} className="space-y-6">
-                                <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[var(--shadow-card)]">
+                                <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-[var(--shadow-card)]">
                                     <h2 className="font-serif text-xl font-bold text-slate-900 mb-6">
                                         Informations de paiement
                                     </h2>
@@ -333,11 +333,11 @@ function BookingFlow() {
                                                 id="payment-card"
                                                 type="text"
                                                 required
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                 placeholder="1234 5678 9012 3456"
                                             />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-4">
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 mb-1.5">
                                                     Date d&apos;expiration
@@ -346,7 +346,7 @@ function BookingFlow() {
                                                     id="payment-expiry"
                                                     type="text"
                                                     required
-                                                    className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                    className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                     placeholder="MM/AA"
                                                 />
                                             </div>
@@ -358,7 +358,7 @@ function BookingFlow() {
                                                     id="payment-cvv"
                                                     type="text"
                                                     required
-                                                    className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                    className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                                     placeholder="123"
                                                 />
                                             </div>
@@ -372,7 +372,7 @@ function BookingFlow() {
                                                 type="text"
                                                 required
                                                 defaultValue={`${firstName} ${lastName}`}
-                                                className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                                className="w-full min-w-0 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                             />
                                         </div>
                                     </div>
@@ -397,18 +397,18 @@ function BookingFlow() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                     <button
                                         type="button"
                                         onClick={() => setStep("details")}
-                                        className="flex-1 bg-white text-slate-700 font-semibold py-4 rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all"
+                                        className="flex-1 bg-white text-slate-700 font-semibold py-3.5 sm:py-4 rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all"
                                     >
                                         Retour
                                     </button>
                                     <button
                                         id="payment-submit-btn"
                                         type="submit"
-                                        className="flex-[2] gradient-cta text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg"
+                                        className="flex-[2] gradient-cta text-white font-semibold py-3.5 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-base sm:text-lg"
                                     >
                                         Payer ${total} CAD
                                     </button>
@@ -419,7 +419,7 @@ function BookingFlow() {
 
                     {/* Booking Summary Sidebar */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white rounded-3xl shadow-[var(--shadow-card)] overflow-hidden lg:sticky lg:top-24">
+                        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[var(--shadow-card)] overflow-hidden lg:sticky lg:top-24">
                             <div className="relative h-48">
                                 <Image
                                     src={property.thumbnail}
@@ -433,7 +433,7 @@ function BookingFlow() {
                                 <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">
                                     {property.name}
                                 </h3>
-                                <p className="text-slate-500 text-sm mb-4 flex items-center gap-1">
+                                <p className="text-slate-500 text-sm mb-4 flex min-w-0 items-center gap-1">
                                     <svg
                                         className="w-3.5 h-3.5"
                                         viewBox="0 0 24 24"
@@ -446,11 +446,11 @@ function BookingFlow() {
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                         <circle cx="12" cy="10" r="3" />
                                     </svg>
-                                    {property.location}
+                                    <span className="min-w-0 truncate">{property.location}</span>
                                 </p>
 
                                 <div className="space-y-3 py-4 border-y border-slate-100">
-                                    <div className="flex justify-between text-sm">
+                                    <div className="flex justify-between gap-4 text-sm">
                                         <span className="text-slate-500">
                                             ${property.pricePerNight} × {nights} nuit{nights > 1 ? "s" : ""}
                                         </span>
@@ -458,19 +458,19 @@ function BookingFlow() {
                                             ${subtotal}
                                         </span>
                                     </div>
-                                    <div className="flex justify-between text-sm">
+                                    <div className="flex justify-between gap-4 text-sm">
                                         <span className="text-slate-500">Frais de ménage</span>
                                         <span className="text-slate-800 font-medium">
                                             ${cleaningFee}
                                         </span>
                                     </div>
-                                    <div className="flex justify-between text-sm">
+                                    <div className="flex justify-between gap-4 text-sm">
                                         <span className="text-slate-500">Frais de service</span>
                                         <span className="text-forest-600 font-medium">$0</span>
                                     </div>
                                 </div>
 
-                                <div className="flex justify-between font-bold text-lg mt-4">
+                                <div className="flex justify-between gap-4 font-bold text-lg mt-4">
                                     <span className="text-slate-900">Total</span>
                                     <span className="text-slate-900">${total} CAD</span>
                                 </div>

@@ -13,9 +13,9 @@ export default async function PropertiesPage() {
     const properties = await getProperties();
 
     return (
-        <div className="pt-20 min-h-screen bg-sand-50">
+        <div className="pt-16 sm:pt-20 min-h-screen bg-sand-50">
             {/* Header */}
-            <div className="relative h-64 lg:h-80 overflow-hidden">
+            <div className="relative h-56 sm:h-64 lg:h-80 overflow-hidden">
                 <Image
                     src="/images/aerial-property.png"
                     alt="Vue aérienne du domaine Condos Kamouraska"
@@ -24,14 +24,14 @@ export default async function PropertiesPage() {
                     sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sand-50 via-slate-900/50 to-slate-900/30" />
-                <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-10">
+                <div className="safe-container relative h-full flex flex-col justify-end pb-8 sm:pb-10">
                     <span className="text-lake-300 text-sm font-semibold uppercase tracking-[0.15em] mb-2">
                         Collection
                     </span>
-                    <h1 className="font-serif text-3xl lg:text-5xl font-bold text-white mb-2">
+                    <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2 leading-tight">
                         Nos Propriétés
                     </h1>
-                    <p className="text-white/70 text-base max-w-lg">
+                    <p className="text-white/70 text-sm sm:text-base max-w-lg text-pretty">
                         {properties.length} propriétés d&apos;exception au bord du fleuve
                         Saint-Laurent
                     </p>
@@ -39,8 +39,8 @@ export default async function PropertiesPage() {
             </div>
 
             {/* Properties Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="safe-container py-10 sm:py-12 lg:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {properties.map((p) => (
                         <PropertyCard key={p.id} property={p} />
                     ))}

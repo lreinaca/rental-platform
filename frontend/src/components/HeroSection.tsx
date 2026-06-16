@@ -10,7 +10,7 @@ export default function HeroSection() {
     const [guests, setGuests] = useState("2");
 
     return (
-        <section id="hero" className="relative h-screen min-h-[700px] max-h-[1000px] overflow-hidden">
+        <section id="hero" className="relative min-h-[760px] overflow-hidden sm:min-h-[820px] lg:h-screen lg:min-h-[720px] lg:max-h-[1000px]">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
@@ -45,50 +45,50 @@ export default function HeroSection() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end pb-12 lg:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="safe-container relative z-10 flex min-h-[760px] flex-col justify-end pb-8 pt-28 sm:min-h-[820px] sm:pb-12 lg:h-full lg:min-h-[720px] lg:pb-20">
                 <div className="max-w-2xl">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 glass-dark rounded-full px-4 py-2 mb-6 animate-fade-in-up opacity-0">
-                        <span className="w-2 h-2 rounded-full bg-forest-400 animate-pulse-soft" />
-                        <span className="text-white/90 text-sm font-medium">
+                    <div className="inline-flex max-w-full items-center gap-2 glass-dark rounded-full px-3 py-2 sm:px-4 mb-5 sm:mb-6 animate-fade-in-up opacity-0">
+                        <span className="w-2 h-2 shrink-0 rounded-full bg-forest-400 animate-pulse-soft" />
+                        <span className="min-w-0 text-white/90 text-xs font-medium sm:text-sm">
                             Disponibilité limitée — Été 2026
                         </span>
                     </div>
 
                     {/* Headline */}
-                    <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white font-bold leading-[1.1] mb-4 animate-fade-in-up opacity-0 stagger-1 text-balance">
+                    <h1 className="font-serif text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl text-white font-bold leading-[1.05] sm:leading-[1.1] mb-4 animate-fade-in-up opacity-0 stagger-1 text-balance">
                         Votre refuge
                         <br />
                         <span className="text-lake-300">au bord du lac</span>
                     </h1>
 
                     {/* Subtitle */}
-                    <p className="text-white/80 text-lg sm:text-xl max-w-lg mb-8 animate-fade-in-up opacity-0 stagger-2 leading-relaxed">
+                    <p className="text-white/80 text-base sm:text-xl max-w-lg mb-7 sm:mb-8 animate-fade-in-up opacity-0 stagger-2 leading-relaxed text-pretty">
                         Des condos d’exception face au majestueux fleuve Saint-Laurent, dans la magnifique région du Kamouraska.
                     </p>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up opacity-0 stagger-3">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 animate-fade-in-up opacity-0 stagger-3">
                         <Link
                             href="#properties"
                             id="hero-explore-btn"
-                            className="gradient-cta text-white font-semibold px-8 py-4 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg"
+                            className="gradient-cta text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-base sm:text-lg"
                         >
                             Explorer nos Condos
                         </Link>
-                        <a
-                            href="#experience"
-                            className="glass-dark text-white font-medium px-8 py-4 rounded-2xl text-center hover:bg-white/20 transition-all duration-300"
+                        <Link
+                            href="/experience"
+                            className="glass-dark text-white font-medium px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl text-center hover:bg-white/20 transition-all duration-300"
                         >
                             Découvrir l&apos;expérience
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
                 {/* Availability Widget */}
                 <div className="animate-fade-in-up opacity-0 stagger-4">
-                    <div className="glass rounded-2xl lg:rounded-3xl p-4 lg:p-6 shadow-[var(--shadow-elevated)] max-w-4xl">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+                    <div className="glass rounded-2xl lg:rounded-3xl p-3 sm:p-4 lg:p-6 shadow-[var(--shadow-elevated)] max-w-4xl">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
                             {/* Check-in */}
                             <div className="relative">
                                 <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 px-1">
@@ -99,7 +99,7 @@ export default function HeroSection() {
                                     type="date"
                                     value={checkIn}
                                     onChange={(e) => setCheckIn(e.target.value)}
-                                    className="w-full bg-white/70 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                    className="w-full min-w-0 bg-white/70 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                 />
                             </div>
 
@@ -113,7 +113,7 @@ export default function HeroSection() {
                                     type="date"
                                     value={checkOut}
                                     onChange={(e) => setCheckOut(e.target.value)}
-                                    className="w-full bg-white/70 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
+                                    className="w-full min-w-0 bg-white/70 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all"
                                 />
                             </div>
 
@@ -126,7 +126,7 @@ export default function HeroSection() {
                                     id="hero-guests"
                                     value={guests}
                                     onChange={(e) => setGuests(e.target.value)}
-                                    className="w-full bg-white/70 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all appearance-none"
+                                    className="w-full min-w-0 bg-white/70 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-lake-500 focus:border-transparent transition-all appearance-none"
                                 >
                                     {[1, 2, 3, 4, 5, 6, 7, 8, 10, 12].map((n) => (
                                         <option key={n} value={n}>
