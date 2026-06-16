@@ -38,14 +38,14 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
     return (
         <div
             id="booking-widget"
-            className={`bg-white rounded-3xl shadow-[var(--shadow-elevated)] border border-slate-100 transition-all duration-500 ${
+            className={`bg-white rounded-2xl lg:rounded-3xl shadow-[var(--shadow-elevated)] border border-slate-100 transition-all duration-500 ${
                 isSticky ? "lg:sticky lg:top-24" : ""
             }`}
         >
-            <div className="p-6 lg:p-8">
+            <div className="p-5 sm:p-6 lg:p-8">
                 {/* Price Header */}
-                <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl font-bold text-slate-900">
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
+                    <span className="text-2xl sm:text-3xl font-bold text-slate-900">
                         ${property.pricePerNight}
                     </span>
                     <span className="text-slate-500 text-sm">CAD / nuit</span>
@@ -66,7 +66,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
 
                 {/* Urgency Marker */}
                 {soonAvailable < 10 && (
-                    <div className="bg-sunset-500/10 border border-sunset-500/20 rounded-xl px-4 py-3 mb-6 flex items-center gap-2">
+                    <div className="bg-sunset-500/10 border border-sunset-500/20 rounded-xl px-4 py-3 mb-6 flex items-start gap-2">
                         <svg
                             className="w-5 h-5 text-sunset-500 flex-shrink-0"
                             viewBox="0 0 20 20"
@@ -85,8 +85,8 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                 )}
 
                 {/* Date Inputs */}
-                <div className="grid grid-cols-2 gap-0 border border-slate-200 rounded-2xl overflow-hidden mb-4">
-                    <div className="p-3 border-r border-slate-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-slate-200 rounded-2xl overflow-hidden mb-4">
+                    <div className="p-3 border-b border-slate-200 sm:border-b-0 sm:border-r">
                         <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                             Arrivée
                         </label>
@@ -95,7 +95,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                             type="date"
                             value={checkIn}
                             onChange={(e) => setCheckIn(e.target.value)}
-                            className="w-full text-sm font-medium text-slate-800 bg-transparent focus:outline-none"
+                            className="w-full min-w-0 text-sm font-medium text-slate-800 bg-transparent focus:outline-none"
                         />
                     </div>
                     <div className="p-3">
@@ -107,7 +107,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                             type="date"
                             value={checkOut}
                             onChange={(e) => setCheckOut(e.target.value)}
-                            className="w-full text-sm font-medium text-slate-800 bg-transparent focus:outline-none"
+                            className="w-full min-w-0 text-sm font-medium text-slate-800 bg-transparent focus:outline-none"
                         />
                     </div>
                 </div>
@@ -121,7 +121,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                         id="widget-guests"
                         value={guests}
                         onChange={(e) => setGuests(Number(e.target.value))}
-                        className="w-full text-sm font-medium text-slate-800 bg-transparent focus:outline-none appearance-none"
+                        className="w-full min-w-0 text-sm font-medium text-slate-800 bg-transparent focus:outline-none appearance-none"
                     >
                         {Array.from({ length: property.maxGuests }, (_, i) => i + 1).map(
                             (n) => (
@@ -136,7 +136,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                 {/* Book Button */}
                 <button
                     id="widget-book-btn"
-                    className="w-full gradient-cta text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg mb-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                    className="w-full gradient-cta text-white font-semibold py-3.5 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-base sm:text-lg mb-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                     disabled={nights === 0}
                     onClick={() => {
                         if (nights > 0) {
@@ -156,26 +156,26 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
                 {/* Price Breakdown */}
                 {nights > 0 && (
                     <div className="space-y-3 pt-4 border-t border-slate-100">
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between gap-4 text-sm">
                             <span className="text-slate-500 underline decoration-dotted">
                                 ${property.pricePerNight} × {nights} nuit
                                 {nights > 1 ? "s" : ""}
                             </span>
                             <span className="text-slate-800 font-medium">${subtotal}</span>
                         </div>
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between gap-4 text-sm">
                             <span className="text-slate-500 underline decoration-dotted">
                                 Frais de ménage
                             </span>
                             <span className="text-slate-800 font-medium">${cleaningFee}</span>
                         </div>
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between gap-4 text-sm">
                             <span className="text-slate-500 underline decoration-dotted">
                                 Frais de service
                             </span>
                             <span className="text-forest-600 font-medium">$0</span>
                         </div>
-                        <div className="flex justify-between font-bold text-base pt-3 border-t border-slate-200">
+                        <div className="flex justify-between gap-4 font-bold text-base pt-3 border-t border-slate-200">
                             <span className="text-slate-900">Total</span>
                             <span className="text-slate-900">${total} CAD</span>
                         </div>
@@ -184,7 +184,7 @@ export default function BookingWidget({ property, availability }: BookingWidgetP
             </div>
 
             {/* Trust Signals */}
-            <div className="px-6 lg:px-8 pb-6 lg:pb-8">
+            <div className="px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8">
                 <div className="bg-sand-50 rounded-2xl p-4 space-y-3">
                     {[
                         { icon: "🛡️", text: "Meilleur prix garanti — réservation directe" },

@@ -18,14 +18,14 @@ export default function Navbar() {
             id="main-navbar"
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                 scrolled
-                    ? "glass shadow-[var(--shadow-glass)] py-3"
-                    : "bg-transparent py-5"
+                    ? "glass shadow-[var(--shadow-glass)] py-2.5 sm:py-3"
+                    : "bg-transparent py-4 sm:py-5"
             }`}
         >
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <nav className="safe-container flex items-center justify-between gap-4">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2.5 group">
-                    <div className="w-9 h-9 rounded-xl gradient-lake flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                <Link href="/" className="flex min-w-0 items-center gap-2.5 group">
+                    <div className="w-9 h-9 shrink-0 rounded-xl gradient-lake flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
                         <svg
                             width="20"
                             height="20"
@@ -40,9 +40,9 @@ export default function Navbar() {
                             <polyline points="9 22 9 12 15 12 15 22" />
                         </svg>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex min-w-0 flex-col">
                         <span
-                            className={`font-serif font-bold text-lg leading-tight transition-colors duration-300 ${
+                            className={`font-serif font-bold text-base sm:text-lg leading-tight transition-colors duration-300 ${
                                 scrolled ? "text-slate-900" : "text-white"
                             }`}
                         >
@@ -59,7 +59,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-5 lg:gap-8">
                     {[
                         { href: "/#properties", label: "Nos Condos" },
                         { href: "/experience", label: "L'Expérience" },
@@ -89,7 +89,7 @@ export default function Navbar() {
                 <button
                     id="mobile-menu-toggle"
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    className={`md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                    className={`md:hidden w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-colors ${
                         scrolled
                             ? "bg-slate-100 text-slate-700"
                             : "bg-white/15 text-white"
@@ -127,7 +127,7 @@ export default function Navbar() {
                     mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
-                <div className="glass mx-4 mt-3 rounded-2xl p-4 shadow-[var(--shadow-elevated)]">
+                <div className="glass mx-4 mt-3 rounded-2xl p-3 shadow-[var(--shadow-elevated)]">
                     {[
                         { href: "/#properties", label: "Nos Condos" },
                         { href: "/experience", label: "L'Expérience" },

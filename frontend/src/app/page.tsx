@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import PropertyCard from "@/components/PropertyCard";
-import ExperienceSection from "@/components/ExperienceSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import CTASection from "@/components/CTASection";
 import { getFeaturedProperties } from "@/lib/api";
@@ -17,26 +16,26 @@ export default async function Home() {
             <HeroSection />
 
             {/* Properties Section */}
-            <section id="properties" className="py-20 lg:py-28 bg-sand-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section id="properties" className="py-16 sm:py-20 lg:py-28 bg-sand-50">
+                <div className="safe-container">
                     {/* Section Header */}
-                    <div className="text-center max-w-2xl mx-auto mb-14">
+                    <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
                         <span className="inline-block text-lake-600 text-sm font-semibold uppercase tracking-[0.15em] mb-4">
                             Nos Propriétés
                         </span>
-                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 text-balance">
+                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 text-balance leading-tight">
                             Trouvez votre
                             <br />
                             <span className="text-lake-600">havre de paix</span>
                         </h2>
-                        <p className="text-slate-500 text-lg leading-relaxed">
+                        <p className="text-slate-500 text-base sm:text-lg leading-relaxed text-pretty">
                             Chaque propriété a été sélectionnée pour son emplacement
                             exceptionnel et son design soigné.
                         </p>
                     </div>
 
                     {/* Property Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {properties.map((property) => (
                             <PropertyCard key={property.id} property={property} />
                         ))}

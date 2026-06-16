@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CTASection() {
     return (
-        <section className="relative py-24 lg:py-32 overflow-hidden">
+        <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
@@ -13,10 +13,10 @@ export default function CTASection() {
                     className="object-cover"
                     sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/70 to-slate-900/50" />
+                <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-slate-900/90 via-slate-900/75 to-slate-900/50" />
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="safe-container relative">
                 <div className="max-w-2xl">
                     <span className="inline-block text-lake-300 text-sm font-semibold uppercase tracking-[0.15em] mb-4">
                         Réservation Directe
@@ -26,14 +26,14 @@ export default function CTASection() {
                         <br />
                         <span className="text-lake-300">économisez plus</span>
                     </h2>
-                    <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
+                    <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 max-w-lg text-pretty">
                         En réservant directement sur notre site, vous bénéficiez des
                         meilleurs tarifs garantis — sans frais de service ni commission
                         de plateforme.
                     </p>
 
                     {/* Benefits */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                    <div className="grid grid-cols-1 min-[420px]:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
                         {[
                             { value: "15%", label: "d'économies vs Airbnb" },
                             { value: "0$", label: "frais de service" },
@@ -41,12 +41,12 @@ export default function CTASection() {
                         ].map((benefit) => (
                             <div
                                 key={benefit.label}
-                                className="glass-dark rounded-2xl p-4 text-center"
+                                className="glass-dark rounded-2xl p-3 sm:p-4 text-center"
                             >
-                                <p className="text-2xl font-bold text-lake-300 mb-1">
+                                <p className="text-xl sm:text-2xl font-bold text-lake-300 mb-1">
                                     {benefit.value}
                                 </p>
-                                <p className="text-white/60 text-sm">{benefit.label}</p>
+                                <p className="text-white/60 text-xs sm:text-sm">{benefit.label}</p>
                             </div>
                         ))}
                     </div>
@@ -54,7 +54,7 @@ export default function CTASection() {
                     <Link
                         href="#properties"
                         id="cta-reserve-btn"
-                        className="inline-flex items-center gap-3 gradient-cta text-white font-semibold px-10 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-lg"
+                        className="inline-flex w-full items-center justify-center gap-3 gradient-cta text-white font-semibold px-6 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 text-base sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
                     >
                         Voir les disponibilités
                         <svg

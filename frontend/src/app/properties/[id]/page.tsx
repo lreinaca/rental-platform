@@ -2,7 +2,6 @@ import { getPropertyById, getAvailability, getReviewsForProperty } from "@/lib/a
 import { Metadata } from "next";
 import ImageGallery from "@/components/ImageGallery";
 import BookingWidget from "@/components/BookingWidget";
-import ReviewsSection from "@/components/ReviewsSection";
 import Link from "next/link";
 
 export async function generateMetadata({
@@ -53,8 +52,8 @@ export default async function PropertyDetail({
     return (
         <div className="pt-20 bg-sand-50 min-h-screen">
             {/* Breadcrumb */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <nav className="flex items-center gap-2 text-sm text-slate-400">
+            <div className="safe-container py-4">
+                <nav className="flex min-w-0 items-center gap-2 overflow-x-auto whitespace-nowrap text-sm text-slate-400">
                     <Link href="/" className="hover:text-lake-600 transition-colors">
                         Accueil
                     </Link>
@@ -71,15 +70,15 @@ export default async function PropertyDetail({
             </div>
 
             {/* Gallery */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <div className="safe-container mb-8">
                 <ImageGallery images={property.images} propertyName={property.name} />
             </div>
 
             {/* Content + Booking Widget */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <div className="safe-container pb-16 sm:pb-20">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
                     {/* Left: Property Info */}
-                    <div className="lg:col-span-2 space-y-10">
+                    <div className="lg:col-span-2 space-y-8 sm:space-y-10 min-w-0">
                         {/* Header */}
                         <div>
                             <div className="flex flex-wrap items-center gap-3 mb-3">
@@ -92,11 +91,11 @@ export default async function PropertyDetail({
                                     </span>
                                 )}
                             </div>
-                            <h1 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-2">
+                            <h1 className="font-serif text-3xl lg:text-4xl font-bold text-slate-900 mb-2 leading-tight text-balance">
                                 {property.name}
                             </h1>
-                            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
-                                <span className="flex items-center gap-1">
+                            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-500">
+                                <span className="flex min-w-0 items-center gap-1">
                                     <svg
                                         className="w-4 h-4"
                                         viewBox="0 0 24 24"
@@ -109,7 +108,7 @@ export default async function PropertyDetail({
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                         <circle cx="12" cy="10" r="3" />
                                     </svg>
-                                    {property.location}
+                                    <span className="min-w-0 break-words">{property.location}</span>
                                 </span>
                                 <span className="flex items-center gap-1">
                                     <svg
@@ -128,7 +127,7 @@ export default async function PropertyDetail({
                         </div>
 
                         {/* Quick Stats */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                             {[
                                 {
                                     label: "Chambres",
@@ -170,13 +169,13 @@ export default async function PropertyDetail({
                             ].map((stat) => (
                                 <div
                                     key={stat.label}
-                                    className="bg-white rounded-2xl p-4 text-center shadow-[var(--shadow-card)]"
+                                    className="bg-white rounded-2xl p-3 sm:p-4 text-center shadow-[var(--shadow-card)]"
                                 >
                                     <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-lake-50 text-lake-600 flex items-center justify-center">
                                         {stat.icon}
                                     </div>
-                                    <p className="text-lg font-bold text-slate-800">{stat.value}</p>
-                                    <p className="text-xs text-slate-500">{stat.label}</p>
+                                    <p className="text-base sm:text-lg font-bold text-slate-800">{stat.value}</p>
+                                    <p className="text-xs text-slate-500 leading-snug">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -186,7 +185,7 @@ export default async function PropertyDetail({
                             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
                                 À propos
                             </h2>
-                            <p className="text-slate-600 leading-relaxed text-base">
+                            <p className="text-slate-600 leading-relaxed text-base text-pretty">
                                 {property.description}
                             </p>
                         </div>
@@ -215,7 +214,7 @@ export default async function PropertyDetail({
                                                 />
                                             </svg>
                                         </div>
-                                        <span className="text-slate-700 text-sm font-medium">
+                                        <span className="min-w-0 text-slate-700 text-sm font-medium">
                                             {highlight}
                                         </span>
                                     </div>
@@ -228,11 +227,11 @@ export default async function PropertyDetail({
                             <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">
                                 Équipements
                             </h2>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 gap-3">
                                 {property.amenities.map((amenity) => (
                                     <div
                                         key={amenity}
-                                        className="flex items-center gap-2.5 text-sm text-slate-600 py-2"
+                                        className="flex min-w-0 items-center gap-2.5 text-sm text-slate-600 py-2"
                                     >
                                         <svg
                                             className="w-4 h-4 text-lake-500 flex-shrink-0"
@@ -261,9 +260,9 @@ export default async function PropertyDetail({
                                     {reviews.map((review) => (
                                         <div
                                             key={review.id}
-                                            className="bg-white rounded-2xl p-6 shadow-[var(--shadow-card)]"
+                                            className="bg-white rounded-2xl p-5 sm:p-6 shadow-[var(--shadow-card)]"
                                         >
-                                            <div className="flex items-center gap-3 mb-3">
+                                            <div className="flex flex-wrap items-center gap-3 mb-3">
                                                 <div className="w-10 h-10 rounded-full gradient-lake flex items-center justify-center text-white font-semibold text-sm">
                                                     {review.author.charAt(0)}
                                                 </div>
@@ -288,7 +287,7 @@ export default async function PropertyDetail({
                                                     </span>
                                                 </div>
                                             </div>
-                                            <p className="text-slate-600 text-sm leading-relaxed">
+                                            <p className="text-slate-600 text-sm leading-relaxed text-pretty">
                                                 &ldquo;{review.comment}&rdquo;
                                             </p>
                                         </div>
