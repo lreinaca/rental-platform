@@ -59,7 +59,7 @@ export default function HeroSection() {
                     <h1 className="font-serif text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl text-white font-bold leading-[1.05] sm:leading-[1.1] mb-4 animate-fade-in-up opacity-0 stagger-1 text-balance">
                         Votre refuge
                         <br />
-                        <span className="text-lake-300">au bord du lac</span>
+                        <span className="text-lake-300 whitespace-nowrap">au bord du lac Saint-Pierre</span>
                     </h1>
 
                     {/* Subtitle */}
